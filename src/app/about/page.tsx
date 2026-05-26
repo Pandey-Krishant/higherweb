@@ -36,41 +36,31 @@ const values = [
 
 function Timeline() {
   const lineRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const el = lineRef.current;
     if (!el) return;
     const ctx = gsap.context(() => {
-      gsap.from(el, {
-        scaleY: 0,
-        transformOrigin: "top center",
-        duration: 2,
-        ease: "power2.out",
-        scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 20%", scrub: 1 },
-      });
+      gsap.from(el, { scaleY: 0, transformOrigin: "top center", duration: 2, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 80%", end: "bottom 20%", scrub: 1 } });
     });
     return () => ctx.revert();
   }, []);
 
   return (
     <div className="relative max-w-3xl mx-auto">
-      <div
-        ref={lineRef}
-        className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand via-brand/40 to-transparent -translate-x-1/2"
-      />
+      <div ref={lineRef} className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-orange-DEFAULT via-orange-DEFAULT/40 to-transparent -translate-x-1/2" />
       <div className="space-y-12">
         {milestones.map((m, i) => (
           <ScrollReveal key={m.year} direction={i % 2 === 0 ? "left" : "right"} delay={0.1}>
             <div className={`flex items-center gap-6 ${i % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}>
               <div className="flex-1">
-                <div className={`glass-card bg-surface p-6 ${i % 2 === 0 ? "text-right" : "text-left"}`}>
-                  <span className="tag-pill mb-3 inline-block">{m.year}</span>
-                  <h3 className="font-syne font-bold text-xl text-ink mb-2">{m.title}</h3>
-                  <p className="text-ink-muted text-sm font-inter leading-relaxed">{m.desc}</p>
+                <div className={`card p-6 ${i % 2 === 0 ? "text-right" : "text-left"}`}>
+                  <span className="section-label mb-3 inline-flex">{m.year}</span>
+                  <h3 className="font-syne font-bold text-xl text-white mb-2">{m.title}</h3>
+                  <p className="text-white/45 text-sm font-inter leading-relaxed">{m.desc}</p>
                 </div>
               </div>
               <div className="relative z-10 shrink-0">
-                <div className="w-4 h-4 rounded-full bg-brand border-2 border-surface shadow-[0_0_10px_rgba(37,99,235,0.4)]" />
+                <div className="timeline-dot" />
               </div>
               <div className="flex-1" />
             </div>
@@ -84,132 +74,83 @@ function Timeline() {
 export default function AboutPage() {
   return (
     <>
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative pt-36 pb-24 px-6 overflow-hidden bg-surface-secondary bg-grid">
-        <div className="glow-orb w-96 h-96 bg-brand/10 -top-20 right-0" />
+      {/* HERO */}
+      <section className="relative pt-36 pb-24 px-6 overflow-hidden bg-grid bg-bg">
+        <div className="glow-orb w-96 h-96 bg-orange-DEFAULT/8 -top-20 right-0" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
-            <span className="tag-pill mb-6 inline-block">Our Story</span>
-            <h1 className="font-syne font-extrabold text-5xl md:text-6xl text-ink mb-6 section-heading section-heading-center">
+            <span className="section-label mb-6 inline-flex">Our Story</span>
+            <h1 className="font-syne font-extrabold text-5xl md:text-6xl text-white mb-6">
               We Are <span className="gradient-text">HigherWebSolution</span>
             </h1>
-            <p className="text-ink-secondary text-lg md:text-xl font-inter leading-relaxed max-w-2xl mx-auto">
-              Born from a belief that every business deserves a powerful digital presence,
-              we&apos;ve spent over a decade helping brands grow online with strategy, creativity,
-              and relentless execution.
+            <p className="text-white/55 text-lg md:text-xl font-inter leading-relaxed max-w-2xl mx-auto">
+              Born from a belief that every business deserves a powerful digital presence, we&apos;ve spent over a decade helping brands grow online with strategy, creativity, and relentless execution.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── STORY ────────────────────────────────────────────────────────── */}
-      <section className="py-20 px-6 bg-surface">
+      {/* STORY */}
+      <section className="py-20 px-6 bg-bg2">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal direction="left">
               <div className="relative">
-                <div className="rounded-2xl overflow-hidden shadow-card">
-                  <Image
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop"
-                    alt="Our team at work"
-                    width={700}
-                    height={500}
-                    className="w-full object-cover"
-                  />
+                <div className="rounded-2xl overflow-hidden border border-white/8">
+                  <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop" alt="Our team" width={700} height={500} className="w-full object-cover" />
                 </div>
-                <div className="absolute -bottom-6 -right-6 glass-card bg-surface p-5 rounded-xl shadow-card-hover">
-                  <p className="font-syne font-bold text-3xl text-ink">12+</p>
-                  <p className="text-ink-muted text-sm font-inter">Years of Excellence</p>
+                <div className="absolute -bottom-6 -right-6 card p-5 rounded-xl">
+                  <p className="font-syne font-bold text-3xl text-white">12+</p>
+                  <p className="text-white/45 text-sm font-inter">Years of Excellence</p>
                 </div>
               </div>
             </ScrollReveal>
-
             <ScrollReveal direction="right">
-              <span className="tag-pill mb-4 inline-block">Who We Are</span>
-              <h2 className="font-syne font-bold text-4xl text-ink mb-6 section-heading">
-                A Team Obsessed With Your Growth
-              </h2>
-              <div className="space-y-4 text-ink-secondary font-inter leading-relaxed">
-                <p>
-                  HigherWebSolution was founded in 2012 with a simple mission: help businesses
-                  thrive in the digital world. What started as a small web studio has grown into
-                  a full-service digital agency with 40+ specialists across development, SEO,
-                  design, and marketing.
-                </p>
-                <p>
-                  We don&apos;t believe in cookie-cutter solutions. Every client gets a custom
-                  strategy built around their unique goals, audience, and competitive landscape.
-                  Our process is transparent, collaborative, and relentlessly focused on results.
-                </p>
-                <p>
-                  From startups to enterprise brands, we&apos;ve delivered 250+ projects that
-                  have generated millions in revenue for our clients.
-                </p>
+              <span className="section-label mb-4 inline-flex">Who We Are</span>
+              <h2 className="font-syne font-bold text-4xl text-white mb-6">A Team Obsessed With Your Growth</h2>
+              <div className="space-y-4 text-white/55 font-inter leading-relaxed">
+                <p>HigherWebSolution was founded in 2012 with a simple mission: help businesses thrive in the digital world. What started as a small web studio has grown into a full-service digital agency with 40+ specialists.</p>
+                <p>We don&apos;t believe in cookie-cutter solutions. Every client gets a custom strategy built around their unique goals, audience, and competitive landscape.</p>
+                <p>From startups to enterprise brands, we&apos;ve delivered 250+ projects that have generated millions in revenue for our clients.</p>
               </div>
               <div className="mt-8">
-                <Link href="/contact" className="btn-glow px-7 py-3 rounded-xl font-semibold font-inter inline-block">
-                  Work With Us →
-                </Link>
+                <Link href="/contact" className="btn-primary px-7 py-3 text-sm font-semibold font-inter inline-block">Work With Us →</Link>
               </div>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* ── TIMELINE ─────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-surface-secondary">
+      {/* TIMELINE */}
+      <section className="py-24 px-6 bg-bg">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <span className="tag-pill mb-4 inline-block">Our Journey</span>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-ink mb-4 section-heading section-heading-center">
-              Milestones That Define Us
-            </h2>
+            <span className="section-label mb-4 inline-flex">Our Journey</span>
+            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white mb-4">Milestones That Define Us</h2>
           </ScrollReveal>
           <Timeline />
         </div>
       </section>
 
-      {/* ── TEAM ─────────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-surface">
+      {/* TEAM */}
+      <section className="py-24 px-6 bg-bg2">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <span className="tag-pill mb-4 inline-block">The Team</span>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-ink mb-4 section-heading section-heading-center">
-              Meet the Experts
-            </h2>
-            <p className="text-ink-muted max-w-xl mx-auto font-inter">
-              Talented, passionate, and dedicated to your success.
-            </p>
+            <span className="section-label mb-4 inline-flex">The Team</span>
+            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white mb-4">Meet the Experts</h2>
+            <p className="text-white/45 max-w-xl mx-auto font-inter">Talented, passionate, and dedicated to your success.</p>
           </ScrollReveal>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, i) => (
               <ScrollReveal key={member.name} direction="up" delay={i * 0.1}>
-                <div className="team-card glass-card glass-card-hover overflow-hidden bg-surface">
+                <div className="card card-orange overflow-hidden group">
                   <div className="overflow-hidden h-56">
-                    <Image
-                      src={member.img}
-                      alt={member.name}
-                      width={400}
-                      height={400}
-                      className="team-card-img w-full h-full object-cover"
-                    />
+                    <Image src={member.img} alt={member.name} width={400} height={400} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="p-5">
-                    <h3 className="font-syne font-bold text-ink text-lg">{member.name}</h3>
-                    <p className="text-brand text-sm font-inter mb-3">{member.role}</p>
-                    <p className="text-ink-muted text-sm font-inter leading-relaxed">{member.bio}</p>
-                    <div className="flex gap-2 mt-4">
-                      {["in", "tw"].map((s) => (
-                        <a
-                          key={s}
-                          href="#"
-                          className="w-7 h-7 rounded-md border border-border bg-surface-tertiary flex items-center justify-center text-ink-muted hover:text-brand hover:border-brand/40 transition-colors text-xs font-bold"
-                        >
-                          {s}
-                        </a>
-                      ))}
-                    </div>
+                    <h3 className="font-syne font-bold text-white text-lg">{member.name}</h3>
+                    <p className="text-orange-DEFAULT text-sm font-inter mb-3">{member.role}</p>
+                    <p className="text-white/45 text-sm font-inter leading-relaxed">{member.bio}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -218,24 +159,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── VALUES ───────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-surface-secondary">
+      {/* VALUES */}
+      <section className="py-24 px-6 bg-bg">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
-            <span className="tag-pill mb-4 inline-block">Core Values</span>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-ink mb-4 section-heading section-heading-center">
-              What We Stand For
-            </h2>
+            <span className="section-label mb-4 inline-flex">Core Values</span>
+            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white mb-4">What We Stand For</h2>
           </ScrollReveal>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {values.map((v, i) => (
               <ScrollReveal key={v.title} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.08}>
-                <div className="glass-card glass-card-hover p-7 flex gap-5 bg-surface">
-                  <div className="value-icon shrink-0">{v.icon}</div>
+                <div className="card card-orange p-7 flex gap-5">
+                  <div className="text-3xl shrink-0">{v.icon}</div>
                   <div>
-                    <h3 className="font-syne font-bold text-ink text-lg mb-2">{v.title}</h3>
-                    <p className="text-ink-muted text-sm font-inter leading-relaxed">{v.desc}</p>
+                    <h3 className="font-syne font-bold text-white text-lg mb-2">{v.title}</h3>
+                    <p className="text-white/45 text-sm font-inter leading-relaxed">{v.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -244,22 +182,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="py-20 px-6 bg-surface">
+      {/* CTA */}
+      <section className="py-20 px-6 bg-bg2">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
-            <div className="gradient-border rounded-2xl p-12 text-center relative overflow-hidden bg-gradient-to-br from-brand-pale via-surface to-brand-soft/40">
-              <div className="glow-orb w-64 h-64 bg-brand/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            <div className="relative rounded-2xl p-12 text-center overflow-hidden" style={{ background: "linear-gradient(135deg, #1a0f05, #0B0F1A)", border: "1px solid rgba(249,115,22,0.2)" }}>
+              <div className="glow-orb w-64 h-64 bg-orange-DEFAULT/12 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
               <div className="relative z-10">
-                <h2 className="font-syne font-extrabold text-3xl md:text-4xl text-ink mb-4">
-                  Ready to Join Our Success Stories?
-                </h2>
-                <p className="text-ink-muted mb-8 font-inter">
-                  Let&apos;s talk about how we can help your business grow.
-                </p>
-                <Link href="/contact" className="btn-glow px-8 py-4 rounded-xl font-semibold font-inter inline-block">
-                  Start a Conversation →
-                </Link>
+                <h2 className="font-syne font-extrabold text-3xl md:text-4xl text-white mb-4">Ready to Join Our Success Stories?</h2>
+                <p className="text-white/45 mb-8 font-inter">Let&apos;s talk about how we can help your business grow.</p>
+                <Link href="/contact" className="btn-primary px-8 py-4 text-base font-semibold font-inter inline-block">Start a Conversation →</Link>
               </div>
             </div>
           </ScrollReveal>
