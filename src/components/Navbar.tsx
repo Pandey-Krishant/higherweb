@@ -23,12 +23,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu on route change
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
-  // Prevent body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -37,18 +33,20 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "navbar-scrolled py-3" : "py-5"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
+          scrolled
+            ? "navbar-scrolled py-3"
+            : "py-5 bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg btn-glow flex items-center justify-center text-white font-syne font-bold text-sm">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 rounded-xl btn-glow flex items-center justify-center text-white font-syne font-bold text-sm shadow-btn-primary">
               HW
             </div>
-            <span className="font-syne font-bold text-lg text-white group-hover:text-blue-light transition-colors duration-300">
-              Higher<span className="text-blue-electric">Web</span>Solution
+            <span className="font-syne font-bold text-lg text-ink group-hover:text-brand transition-colors duration-300">
+              Higher<span className="text-brand">Web</span>Solution
             </span>
           </Link>
 
@@ -59,9 +57,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`nav-link text-sm font-medium font-inter ${
-                  pathname === link.href
-                    ? "text-blue-light active"
-                    : "text-white/70"
+                  pathname === link.href ? "active" : ""
                 }`}
               >
                 {link.label}
@@ -69,7 +65,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="btn-glow px-5 py-2 rounded-lg text-sm font-semibold text-white font-inter"
+              className="btn-glow px-5 py-2.5 rounded-xl text-sm font-semibold text-white font-inter"
             >
               Get Started
             </Link>
@@ -82,21 +78,9 @@ export default function Navbar() {
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
           >
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? "opacity-0 scale-x-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+            <span className={`block w-6 h-0.5 bg-ink transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-ink transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-ink transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </button>
         </div>
       </header>
@@ -113,11 +97,11 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={`font-syne font-bold text-3xl transition-all duration-300 ${
-                pathname === link.href ? "text-blue-light" : "text-white/80 hover:text-white"
+                pathname === link.href ? "text-brand" : "text-ink/70 hover:text-ink"
               }`}
               style={{
-                transitionDelay: menuOpen ? `${i * 80}ms` : "0ms",
-                transform: menuOpen ? "translateY(0)" : "translateY(20px)",
+                transitionDelay: menuOpen ? `${i * 70}ms` : "0ms",
+                transform: menuOpen ? "translateY(0)" : "translateY(18px)",
                 opacity: menuOpen ? 1 : 0,
               }}
             >
@@ -128,8 +112,8 @@ export default function Navbar() {
             href="/contact"
             className="btn-glow px-8 py-3 rounded-xl text-lg font-semibold text-white font-inter mt-4"
             style={{
-              transitionDelay: menuOpen ? `${navLinks.length * 80}ms` : "0ms",
-              transform: menuOpen ? "translateY(0)" : "translateY(20px)",
+              transitionDelay: menuOpen ? `${navLinks.length * 70}ms` : "0ms",
+              transform: menuOpen ? "translateY(0)" : "translateY(18px)",
               opacity: menuOpen ? 1 : 0,
             }}
           >

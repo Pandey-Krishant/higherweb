@@ -30,7 +30,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-navy text-white font-inter antialiased">
+      <body className="bg-surface-secondary text-ink font-inter antialiased">
         <div className="noise-overlay" aria-hidden="true" />
         <Navbar />
         <main>{children}</main>

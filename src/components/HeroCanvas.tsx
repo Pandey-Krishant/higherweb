@@ -27,13 +27,13 @@ export default function HeroCanvas() {
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
 
-    // ── Main wireframe torus knot ──────────────────────────────────────────
+    // ── Main wireframe torus knot (lighter opacity for light bg) ──────────
     const torusGeo = new THREE.TorusKnotGeometry(1.4, 0.45, 160, 20, 2, 3);
     const torusMat = new THREE.MeshBasicMaterial({
       color: 0x2563eb,
       wireframe: true,
       transparent: true,
-      opacity: 0.55,
+      opacity: 0.22,
     });
     const torusMesh = new THREE.Mesh(torusGeo, torusMat);
     scene.add(torusMesh);
@@ -41,10 +41,10 @@ export default function HeroCanvas() {
     // ── Inner icosahedron ──────────────────────────────────────────────────
     const icoGeo = new THREE.IcosahedronGeometry(0.9, 1);
     const icoMat = new THREE.MeshBasicMaterial({
-      color: 0x60a5fa,
+      color: 0x6366f1,
       wireframe: true,
       transparent: true,
-      opacity: 0.3,
+      opacity: 0.14,
     });
     const icoMesh = new THREE.Mesh(icoGeo, icoMat);
     scene.add(icoMesh);
@@ -60,10 +60,10 @@ export default function HeroCanvas() {
     const particleGeo = new THREE.BufferGeometry();
     particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     const particleMat = new THREE.PointsMaterial({
-      color: 0x3b82f6,
-      size: 0.04,
+      color: 0x2563eb,
+      size: 0.032,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.28,
     });
     const particles = new THREE.Points(particleGeo, particleMat);
     scene.add(particles);
@@ -73,7 +73,7 @@ export default function HeroCanvas() {
     const ringMat = new THREE.MeshBasicMaterial({
       color: 0x2563eb,
       transparent: true,
-      opacity: 0.25,
+      opacity: 0.1,
     });
     const ring1 = new THREE.Mesh(ringGeo, ringMat);
     ring1.rotation.x = Math.PI / 3;
@@ -81,7 +81,7 @@ export default function HeroCanvas() {
 
     const ring2 = new THREE.Mesh(
       new THREE.TorusGeometry(2.8, 0.006, 8, 120),
-      new THREE.MeshBasicMaterial({ color: 0x60a5fa, transparent: true, opacity: 0.15 })
+      new THREE.MeshBasicMaterial({ color: 0x6366f1, transparent: true, opacity: 0.08 })
     );
     ring2.rotation.x = -Math.PI / 4;
     ring2.rotation.y = Math.PI / 6;
