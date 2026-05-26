@@ -159,7 +159,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="hero-section relative flex items-center justify-center overflow-hidden bg-grid bg-bg">
+      <section ref={heroRef} className="hero-section relative flex items-center justify-center overflow-hidden bg-grid bg-white">
         <div className="hero-canvas-wrap absolute inset-0"><HeroCanvas /></div>
         <div className="glow-orb w-72 h-72 sm:w-96 sm:h-96 bg-orange-DEFAULT/8 -top-20 -left-20 sm:-top-40 sm:-left-40" />
         <div className="glow-orb w-64 h-64 sm:w-96 sm:h-96 bg-blue-DEFAULT/6 -bottom-10 -right-10" />
@@ -205,7 +205,7 @@ export default function HomePage() {
       </section>
 
       {/* ── LOGO MARQUEE ─────────────────────────────────────────────────── */}
-      <section className="py-8 sm:py-10 border-y border-slate-100 bg-bg2">
+      <section className="py-8 sm:py-10 border-y border-slate-100 bg-slate-50">
         <p className="text-center text-slate-400 text-xs font-inter uppercase tracking-widest mb-6 sm:mb-8 px-4">Trusted by growing businesses</p>
         <div className="marquee-wrap">
           <div className="marquee-track">
@@ -219,7 +219,7 @@ export default function HomePage() {
       </section>
 
       {/* ── STATS ────────────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-20 bg-bg">
+      <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10">
             {stats.map(s => <StatCounter key={s.label} {...s} />)}
@@ -228,7 +228,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES TABS ────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg2">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-10 sm:mb-12">
             <span className="section-label mb-4 inline-flex">Our Services</span>
@@ -279,7 +279,7 @@ export default function HomePage() {
       </section>
 
       {/* ── WHY US ───────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-12 sm:mb-16">
             <span className="section-label mb-4 inline-flex">Why Choose Us</span>
@@ -303,7 +303,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PROCESS ──────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg2">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-12 sm:mb-16">
             <span className="section-label mb-4 inline-flex">How It Works</span>
@@ -331,7 +331,7 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ─────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-12 sm:mb-16">
             <span className="section-label mb-4 inline-flex">Client Reviews</span>
@@ -368,7 +368,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg2">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal className="text-center mb-10 sm:mb-12">
             <span className="section-label mb-4 inline-flex">FAQ</span>
@@ -384,7 +384,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA BANNER ───────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <div className="relative rounded-2xl overflow-hidden p-8 sm:p-12 text-center bg-slate-900" style={{ border: "1px solid rgba(249,115,22,0.2)" }}>

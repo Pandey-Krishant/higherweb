@@ -34,7 +34,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-36 pb-24 px-6 overflow-hidden bg-grid bg-bg">
+      <section className="relative pt-36 pb-24 px-6 overflow-hidden bg-grid bg-white">
         <div className="glow-orb w-96 h-96 bg-orange-DEFAULT/8 -top-20 left-1/2 -translate-x-1/2" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
@@ -50,7 +50,7 @@ export default function ServicesPage() {
       </section>
 
       {/* WEB DEVELOPMENT */}
-      <section id="web-development" className="py-24 px-6 bg-bg2">
+      <section id="web-development" className="py-24 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
             <ScrollReveal direction="left">
@@ -86,7 +86,7 @@ export default function ServicesPage() {
       <div className="border-t border-slate-100 mx-6" />
 
       {/* SEO */}
-      <section id="seo" className="py-24 px-6 bg-bg">
+      <section id="seo" className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
             <span className="section-label mb-4 inline-flex">02 — SEO Optimization</span>
@@ -125,7 +125,7 @@ export default function ServicesPage() {
       <div className="border-t border-slate-100 mx-6" />
 
       {/* DIGITAL MARKETING */}
-      <section id="digital-marketing" className="py-24 px-6 bg-bg2">
+      <section id="digital-marketing" className="py-24 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
             <span className="section-label mb-4 inline-flex">03 — Digital Marketing</span>
@@ -154,7 +154,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 bg-bg">
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <div className="relative rounded-2xl p-12 text-center overflow-hidden bg-slate-900" style={{ border: "1px solid rgba(249,115,22,0.2)" }}>

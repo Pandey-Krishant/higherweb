@@ -53,7 +53,7 @@ export default function ContactPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-36 pb-24 px-6 overflow-hidden bg-grid bg-bg">
+      <section className="relative pt-36 pb-24 px-6 overflow-hidden bg-grid bg-white">
         <div className="glow-orb w-96 h-96 bg-orange-DEFAULT/8 -top-20 left-1/3" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
@@ -69,7 +69,7 @@ export default function ContactPage() {
       </section>
 
       {/* SPLIT LAYOUT */}
-      <section className="py-12 pb-24 px-6 bg-bg2">
+      <section className="py-12 pb-24 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
@@ -176,7 +176,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-6 bg-bg border-t border-slate-100">
+      <section className="py-20 px-6 bg-white border-t border-slate-100">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal className="text-center mb-12">
             <h2 className="font-syne font-bold text-3xl text-slate-900 mb-3">Frequently Asked Questions</h2>

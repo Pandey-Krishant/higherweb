@@ -29,7 +29,7 @@ export default function PortfolioPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative pt-36 pb-24 px-6 overflow-hidden bg-grid bg-bg">
+      <section className="relative pt-36 pb-24 px-6 overflow-hidden bg-grid bg-white">
         <div className="glow-orb w-96 h-96 bg-orange-DEFAULT/8 -top-20 right-1/4" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
@@ -45,7 +45,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* FILTER + GRID */}
-      <section className="py-12 px-6 pb-24 bg-bg2">
+      <section className="py-12 px-6 pb-24 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map(cat => (
@@ -85,7 +85,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 bg-bg">
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <div className="relative rounded-2xl p-12 text-center overflow-hidden bg-slate-900" style={{ border: "1px solid rgba(249,115,22,0.2)" }}>
