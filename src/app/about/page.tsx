@@ -55,8 +55,8 @@ function Timeline() {
               <div className="flex-1">
                 <div className={`card p-6 ${i % 2 === 0 ? "text-right" : "text-left"}`}>
                   <span className="section-label mb-3 inline-flex">{m.year}</span>
-                  <h3 className="font-syne font-bold text-xl text-white mb-2">{m.title}</h3>
-                  <p className="text-white/45 text-sm font-inter leading-relaxed">{m.desc}</p>
+                  <h3 className="font-syne font-bold text-xl text-slate-900 mb-2">{m.title}</h3>
+                  <p className="text-slate-500 text-sm font-inter leading-relaxed">{m.desc}</p>
                 </div>
               </div>
               <div className="relative z-10 shrink-0">
@@ -80,10 +80,10 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <span className="section-label mb-6 inline-flex">Our Story</span>
-            <h1 className="font-syne font-extrabold text-5xl md:text-6xl text-white mb-6">
+            <h1 className="font-syne font-extrabold text-5xl md:text-6xl text-slate-900 mb-6">
               We Are <span className="gradient-text">HigherWebSolution</span>
             </h1>
-            <p className="text-white/55 text-lg md:text-xl font-inter leading-relaxed max-w-2xl mx-auto">
+            <p className="text-slate-500 text-lg md:text-xl font-inter leading-relaxed max-w-2xl mx-auto">
               Born from a belief that every business deserves a powerful digital presence, we&apos;ve spent over a decade helping brands grow online with strategy, creativity, and relentless execution.
             </p>
           </ScrollReveal>
@@ -96,19 +96,19 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <ScrollReveal direction="left">
               <div className="relative">
-                <div className="rounded-2xl overflow-hidden border border-white/8">
+                <div className="rounded-2xl overflow-hidden border border-slate-200">
                   <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop" alt="Our team" width={700} height={500} className="w-full object-cover" />
                 </div>
                 <div className="absolute -bottom-6 -right-6 card p-5 rounded-xl">
-                  <p className="font-syne font-bold text-3xl text-white">12+</p>
-                  <p className="text-white/45 text-sm font-inter">Years of Excellence</p>
+                  <p className="font-syne font-bold text-3xl text-slate-900">12+</p>
+                  <p className="text-slate-500 text-sm font-inter">Years of Excellence</p>
                 </div>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right">
               <span className="section-label mb-4 inline-flex">Who We Are</span>
-              <h2 className="font-syne font-bold text-4xl text-white mb-6">A Team Obsessed With Your Growth</h2>
-              <div className="space-y-4 text-white/55 font-inter leading-relaxed">
+              <h2 className="font-syne font-bold text-4xl text-slate-900 mb-6">A Team Obsessed With Your Growth</h2>
+              <div className="space-y-4 text-slate-500 font-inter leading-relaxed">
                 <p>HigherWebSolution was founded in 2012 with a simple mission: help businesses thrive in the digital world. What started as a small web studio has grown into a full-service digital agency with 40+ specialists.</p>
                 <p>We don&apos;t believe in cookie-cutter solutions. Every client gets a custom strategy built around their unique goals, audience, and competitive landscape.</p>
                 <p>From startups to enterprise brands, we&apos;ve delivered 250+ projects that have generated millions in revenue for our clients.</p>
@@ -126,7 +126,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
             <span className="section-label mb-4 inline-flex">Our Journey</span>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white mb-4">Milestones That Define Us</h2>
+            <h2 className="font-syne font-bold text-4xl md:text-5xl text-slate-900 mb-4">Milestones That Define Us</h2>
           </ScrollReveal>
           <Timeline />
         </div>
@@ -137,8 +137,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
             <span className="section-label mb-4 inline-flex">The Team</span>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white mb-4">Meet the Experts</h2>
-            <p className="text-white/45 max-w-xl mx-auto font-inter">Talented, passionate, and dedicated to your success.</p>
+            <h2 className="font-syne font-bold text-4xl md:text-5xl text-slate-900 mb-4">Meet the Experts</h2>
+            <p className="text-slate-500 max-w-xl mx-auto font-inter">Talented, passionate, and dedicated to your success.</p>
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, i) => (
@@ -148,9 +148,9 @@ export default function AboutPage() {
                     <Image src={member.img} alt={member.name} width={400} height={400} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="p-5">
-                    <h3 className="font-syne font-bold text-white text-lg">{member.name}</h3>
+                    <h3 className="font-syne font-bold text-slate-900 text-lg">{member.name}</h3>
                     <p className="text-orange-DEFAULT text-sm font-inter mb-3">{member.role}</p>
-                    <p className="text-white/45 text-sm font-inter leading-relaxed">{member.bio}</p>
+                    <p className="text-slate-500 text-sm font-inter leading-relaxed">{member.bio}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -164,7 +164,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <ScrollReveal className="text-center mb-16">
             <span className="section-label mb-4 inline-flex">Core Values</span>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white mb-4">What We Stand For</h2>
+            <h2 className="font-syne font-bold text-4xl md:text-5xl text-slate-900 mb-4">What We Stand For</h2>
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {values.map((v, i) => (
@@ -172,8 +172,8 @@ export default function AboutPage() {
                 <div className="card card-orange p-7 flex gap-5">
                   <div className="text-3xl shrink-0">{v.icon}</div>
                   <div>
-                    <h3 className="font-syne font-bold text-white text-lg mb-2">{v.title}</h3>
-                    <p className="text-white/45 text-sm font-inter leading-relaxed">{v.desc}</p>
+                    <h3 className="font-syne font-bold text-slate-900 text-lg mb-2">{v.title}</h3>
+                    <p className="text-slate-500 text-sm font-inter leading-relaxed">{v.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -186,11 +186,11 @@ export default function AboutPage() {
       <section className="py-20 px-6 bg-bg2">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
-            <div className="relative rounded-2xl p-12 text-center overflow-hidden" style={{ background: "linear-gradient(135deg, #1a0f05, #0B0F1A)", border: "1px solid rgba(249,115,22,0.2)" }}>
+            <div className="relative rounded-2xl p-12 text-center overflow-hidden bg-slate-900" style={{ border: "1px solid rgba(249,115,22,0.2)" }}>
               <div className="glow-orb w-64 h-64 bg-orange-DEFAULT/12 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
               <div className="relative z-10">
                 <h2 className="font-syne font-extrabold text-3xl md:text-4xl text-white mb-4">Ready to Join Our Success Stories?</h2>
-                <p className="text-white/45 mb-8 font-inter">Let&apos;s talk about how we can help your business grow.</p>
+                <p className="text-white/60 mb-8 font-inter">Let&apos;s talk about how we can help your business grow.</p>
                 <Link href="/contact" className="btn-primary px-8 py-4 text-base font-semibold font-inter inline-block">Start a Conversation →</Link>
               </div>
             </div>

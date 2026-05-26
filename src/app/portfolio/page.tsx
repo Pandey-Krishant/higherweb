@@ -34,10 +34,10 @@ export default function PortfolioPage() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <span className="section-label mb-6 inline-flex">Our Work</span>
-            <h1 className="font-syne font-extrabold text-5xl md:text-6xl text-white mb-6">
+            <h1 className="font-syne font-extrabold text-5xl md:text-6xl text-slate-900 mb-6">
               Projects We&apos;re <span className="gradient-text">Proud Of</span>
             </h1>
-            <p className="text-white/55 text-lg md:text-xl font-inter leading-relaxed max-w-2xl mx-auto">
+            <p className="text-slate-500 text-lg md:text-xl font-inter leading-relaxed max-w-2xl mx-auto">
               Real results for real businesses. Every project here has a measurable outcome attached to it.
             </p>
           </ScrollReveal>
@@ -50,7 +50,7 @@ export default function PortfolioPage() {
           <ScrollReveal className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map(cat => (
               <button key={cat} onClick={() => setActive(cat)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold font-inter transition-all duration-280 ${active === cat ? "btn-primary" : "border border-white/10 bg-white/4 text-white/50 hover:text-white hover:border-white/20"}`}>
+                className={`px-5 py-2 rounded-full text-sm font-semibold font-inter transition-all duration-300 ${active === cat ? "btn-primary" : "border border-slate-200 bg-white text-slate-500 hover:text-slate-800 hover:border-slate-300"}`}>
                 {cat}
               </button>
             ))}
@@ -69,12 +69,12 @@ export default function PortfolioPage() {
                   </div>
                   <div className="p-5">
                     <div className="flex items-start justify-between gap-3 mb-2">
-                      <h3 className="font-syne font-bold text-white text-lg leading-tight">{project.title}</h3>
+                      <h3 className="font-syne font-bold text-slate-900 text-lg leading-tight">{project.title}</h3>
                       <span className="tag shrink-0 text-xs">{project.category}</span>
                     </div>
                     <p className="text-orange-DEFAULT text-sm font-semibold font-inter mb-3">{project.result}</p>
                     <div className="flex flex-wrap gap-2">
-                      {project.tags.map(tag => <span key={tag} className="text-xs text-white/35 font-inter bg-white/4 border border-white/8 px-2 py-1 rounded-md">{tag}</span>)}
+                      {project.tags.map(tag => <span key={tag} className="text-xs text-slate-500 font-inter bg-slate-100 border border-slate-200 px-2 py-1 rounded-md">{tag}</span>)}
                     </div>
                   </div>
                 </div>
@@ -88,11 +88,11 @@ export default function PortfolioPage() {
       <section className="py-20 px-6 bg-bg">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
-            <div className="relative rounded-2xl p-12 text-center overflow-hidden" style={{ background: "linear-gradient(135deg, #1a0f05, #0B0F1A)", border: "1px solid rgba(249,115,22,0.2)" }}>
+            <div className="relative rounded-2xl p-12 text-center overflow-hidden bg-slate-900" style={{ border: "1px solid rgba(249,115,22,0.2)" }}>
               <div className="glow-orb w-64 h-64 bg-orange-DEFAULT/12 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
               <div className="relative z-10">
                 <h2 className="font-syne font-extrabold text-3xl md:text-4xl text-white mb-4">Want to Be Our Next Success Story?</h2>
-                <p className="text-white/45 mb-8 font-inter">Let&apos;s discuss your project and create something remarkable together.</p>
+                <p className="text-white/60 mb-8 font-inter">Let&apos;s discuss your project and create something remarkable together.</p>
                 <Link href="/contact" className="btn-primary px-8 py-4 text-base font-semibold font-inter inline-block">Start a Project →</Link>
               </div>
             </div>

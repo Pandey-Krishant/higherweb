@@ -103,7 +103,7 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
       <div className="stat-number text-5xl md:text-6xl mb-2">
         <span ref={numRef}>0</span><span>{suffix}</span>
       </div>
-      <p className="text-white/45 text-sm font-inter">{label}</p>
+      <p className="text-slate-500 text-sm font-inter">{label}</p>
     </div>
   );
 }
@@ -114,14 +114,14 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   return (
     <div className="faq-item py-5">
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between gap-4 text-left group">
-        <span className={`font-syne font-semibold text-base transition-colors ${open ? "text-orange-DEFAULT" : "text-white group-hover:text-white/80"}`}>{q}</span>
-        <span className={`w-7 h-7 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all duration-300 ${open ? "bg-orange-DEFAULT border-orange-DEFAULT rotate-45" : "group-hover:border-white/25"}`}>
-          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <span className={`font-syne font-semibold text-base transition-colors ${open ? "text-orange-DEFAULT" : "text-slate-800 group-hover:text-slate-600"}`}>{q}</span>
+        <span className={`w-7 h-7 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${open ? "bg-orange-DEFAULT border-orange-DEFAULT rotate-45" : "border-slate-200 group-hover:border-slate-300"}`}>
+          <svg className={`w-3.5 h-3.5 ${open ? "text-white" : "text-slate-500"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
           </svg>
         </span>
       </button>
-      {open && <p className="text-white/55 text-sm font-inter leading-relaxed mt-3 pr-10">{a}</p>}
+      {open && <p className="text-slate-500 text-sm font-inter leading-relaxed mt-3 pr-10">{a}</p>}
     </div>
   );
 }
@@ -147,58 +147,59 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid">
+      <section ref={heroRef} className="hero-section relative flex items-center justify-center overflow-hidden bg-grid bg-bg">
         <div className="hero-canvas-wrap absolute inset-0"><HeroCanvas /></div>
-        <div className="glow-orb w-[600px] h-[600px] bg-orange-DEFAULT/8 -top-40 -left-40" />
-        <div className="glow-orb w-96 h-96 bg-blue-DEFAULT/10 bottom-0 right-0" />
+        <div className="glow-orb w-72 h-72 sm:w-96 sm:h-96 bg-orange-DEFAULT/8 -top-20 -left-20 sm:-top-40 sm:-left-40" />
+        <div className="glow-orb w-64 h-64 sm:w-96 sm:h-96 bg-blue-DEFAULT/6 -bottom-10 -right-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-bg/40 via-transparent to-bg pointer-events-none" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="hero-badge section-label mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-DEFAULT animate-pulse" />
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 text-center pt-24 pb-20">
+          <div className="hero-badge section-label mb-6 sm:mb-8 mx-auto">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-DEFAULT animate-pulse flex-shrink-0" />
             Results-Driven Digital Agency
           </div>
 
-          <h1 className="hero-headline font-syne font-extrabold text-5xl md:text-7xl lg:text-[82px] leading-[1.06] text-white mb-6">
+          <h1 className="hero-headline font-syne font-extrabold text-slate-900 mb-5 sm:mb-6"
+            style={{ fontSize: "clamp(1.9rem, 7.5vw, 5.125rem)", lineHeight: 1.06 }}>
             Struggling to Grow<br />
             <span className="gradient-text">Your Business Online?</span>
           </h1>
 
-          <p className="hero-sub text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-inter leading-relaxed">
+          <p className="hero-sub text-slate-500 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 font-inter leading-relaxed px-2">
             HigherWebSolution delivers measurable results through high-performance websites,
             data-driven SEO, and full-funnel digital marketing campaigns.
           </p>
 
-          <div className="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-            <Link href="/contact" className="btn-primary px-8 py-4 text-base font-semibold font-inter">
+          <div className="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 px-4 sm:px-0">
+            <Link href="/contact" className="btn-primary w-full sm:w-auto px-7 py-4 text-base font-semibold font-inter">
               Get Free Strategy Call →
             </Link>
-            <Link href="/portfolio" className="btn-secondary px-8 py-4 text-base font-semibold font-inter">
+            <Link href="/portfolio" className="btn-secondary w-full sm:w-auto px-7 py-4 text-base font-semibold font-inter">
               View Our Work
             </Link>
           </div>
 
-          <div className="hero-trust flex flex-wrap items-center justify-center gap-6 text-white/35 text-sm font-inter">
+          <div className="hero-trust flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-slate-400 text-sm font-inter">
             {["✓ No long-term contracts", "✓ Results in 60 days", "✓ 250+ happy clients"].map(t => (
-              <span key={t} className="flex items-center gap-1.5">{t}</span>
+              <span key={t}>{t}</span>
             ))}
           </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-white/25 text-xs font-inter tracking-widest uppercase">Scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-orange-DEFAULT/50 to-transparent" />
+        <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <span className="text-slate-400 text-xs font-inter tracking-widest uppercase">Scroll</span>
+          <div className="w-px h-8 sm:h-10 bg-gradient-to-b from-orange-DEFAULT/50 to-transparent" />
         </div>
       </section>
 
       {/* ── LOGO MARQUEE ─────────────────────────────────────────────────── */}
-      <section className="py-10 border-y border-white/5 overflow-hidden bg-bg2">
-        <p className="text-center text-white/25 text-xs font-inter uppercase tracking-widest mb-8">Trusted by growing businesses</p>
-        <div className="overflow-hidden">
+      <section className="py-8 sm:py-10 border-y border-slate-100 bg-bg2">
+        <p className="text-center text-slate-400 text-xs font-inter uppercase tracking-widest mb-6 sm:mb-8 px-4">Trusted by growing businesses</p>
+        <div className="marquee-wrap">
           <div className="marquee-track">
             {[...logos, ...logos].map((logo, i) => (
-              <div key={i} className="mx-8 px-6 py-2.5 rounded-xl bg-white/4 border border-white/6 shrink-0">
-                <span className="font-syne font-bold text-white/30 text-sm whitespace-nowrap">{logo}</span>
+              <div key={i} className="mx-4 sm:mx-8 px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl bg-white border border-slate-200 flex-shrink-0">
+                <span className="font-syne font-bold text-slate-400 text-sm whitespace-nowrap">{logo}</span>
               </div>
             ))}
           </div>
@@ -206,44 +207,44 @@ export default function HomePage() {
       </section>
 
       {/* ── STATS ────────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-bg">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+      <section className="py-14 sm:py-20 bg-bg">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10">
             {stats.map(s => <StatCounter key={s.label} {...s} />)}
           </div>
         </div>
       </section>
 
       {/* ── SERVICES TABS ────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-bg2">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg2">
         <div className="max-w-7xl mx-auto">
-          <ScrollReveal className="text-center mb-12">
+          <ScrollReveal className="text-center mb-10 sm:mb-12">
             <span className="section-label mb-4 inline-flex">Our Services</span>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white mb-4">
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-slate-900 mb-4">
               Everything You Need to <span className="gradient-text">Dominate Online</span>
             </h2>
-            <p className="text-white/50 max-w-xl mx-auto font-inter">Three core disciplines. One unified strategy. Measurable results.</p>
+            <p className="text-slate-500 max-w-xl mx-auto font-inter text-sm sm:text-base">Three core disciplines. One unified strategy. Measurable results.</p>
           </ScrollReveal>
 
-          {/* Tabs */}
-          <div className="flex overflow-x-auto border-b border-white/8 mb-10 gap-2">
-            {serviceTabs.map(tab => (
-              <button key={tab.id} onClick={() => setActiveTab(tab.id)}
-                className={`service-tab ${activeTab === tab.id ? "active" : ""}`}>
-                {tab.icon} {tab.label}
-              </button>
-            ))}
+          <div className="service-tabs-wrap border-b border-slate-200 mb-8 sm:mb-10">
+            <div className="flex min-w-max">
+              {serviceTabs.map(tab => (
+                <button key={tab.id} onClick={() => setActiveTab(tab.id)}
+                  className={`service-tab ${activeTab === tab.id ? "active" : ""}`}>
+                  <span className="mr-1.5">{tab.icon}</span>{tab.label}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Tab Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <ScrollReveal direction="left">
-              <h3 className="font-syne font-bold text-3xl text-white mb-4">{activeService.headline}</h3>
-              <p className="text-white/55 font-inter leading-relaxed mb-8">{activeService.desc}</p>
-              <div className="grid grid-cols-2 gap-3 mb-8">
+              <h3 className="font-syne font-bold text-2xl sm:text-3xl text-slate-900 mb-4">{activeService.headline}</h3>
+              <p className="text-slate-500 font-inter leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">{activeService.desc}</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 mb-6 sm:mb-8">
                 {activeService.features.map(f => (
-                  <div key={f} className="flex items-center gap-2 text-sm text-white/65 font-inter">
-                    <span className="w-5 h-5 rounded-full bg-orange-DEFAULT/15 border border-orange-DEFAULT/25 flex items-center justify-center shrink-0">
+                  <div key={f} className="flex items-center gap-2 text-sm text-slate-600 font-inter">
+                    <span className="w-5 h-5 rounded-full bg-orange-DEFAULT/15 border border-orange-DEFAULT/25 flex items-center justify-center flex-shrink-0">
                       <svg className="w-2.5 h-2.5 text-orange-DEFAULT" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -252,12 +253,12 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <Link href="/services" className="btn-primary px-7 py-3 text-sm font-semibold font-inter inline-block">
+              <Link href="/services" className="btn-primary px-7 py-3 text-sm font-semibold font-inter inline-flex">
                 Learn More →
               </Link>
             </ScrollReveal>
             <ScrollReveal direction="right">
-              <div className="rounded-2xl overflow-hidden border border-white/8">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 mt-6 lg:mt-0">
                 <Image src={activeService.img} alt={activeService.label} width={600} height={400} className="w-full object-cover" />
               </div>
             </ScrollReveal>
@@ -266,22 +267,22 @@ export default function HomePage() {
       </section>
 
       {/* ── WHY US ───────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-bg">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg">
         <div className="max-w-7xl mx-auto">
-          <ScrollReveal className="text-center mb-16">
+          <ScrollReveal className="text-center mb-12 sm:mb-16">
             <span className="section-label mb-4 inline-flex">Why Choose Us</span>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white mb-4">
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-slate-900 mb-4">
               We Don&apos;t Just Promise — <span className="gradient-text">We Deliver</span>
             </h2>
-            <p className="text-white/50 max-w-xl mx-auto font-inter">70% of agencies overpromise and underdeliver. We&apos;re the other 30%.</p>
+            <p className="text-slate-500 max-w-xl mx-auto font-inter text-sm sm:text-base">70% of agencies overpromise and underdeliver. We&apos;re the other 30%.</p>
           </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {whyUs.map((w, i) => (
               <ScrollReveal key={w.title} direction={i % 2 === 0 ? "left" : "right"} delay={i * 0.07}>
-                <div className="card card-orange p-7 h-full">
-                  <div className="text-3xl mb-4">{w.icon}</div>
-                  <h3 className="font-syne font-bold text-white text-lg mb-2">{w.title}</h3>
-                  <p className="text-white/50 text-sm font-inter leading-relaxed">{w.desc}</p>
+                <div className="card card-orange p-6 sm:p-7 h-full">
+                  <div className="text-2xl sm:text-3xl mb-3 sm:mb-4">{w.icon}</div>
+                  <h3 className="font-syne font-bold text-slate-900 text-base sm:text-lg mb-2">{w.title}</h3>
+                  <p className="text-slate-500 text-sm font-inter leading-relaxed">{w.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -290,26 +291,26 @@ export default function HomePage() {
       </section>
 
       {/* ── PROCESS ──────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-bg2">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg2">
         <div className="max-w-7xl mx-auto">
-          <ScrollReveal className="text-center mb-16">
+          <ScrollReveal className="text-center mb-12 sm:mb-16">
             <span className="section-label mb-4 inline-flex">How It Works</span>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white mb-4">
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-slate-900 mb-4">
               From Strategy to <span className="gradient-text">Results</span>
             </h2>
           </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {process.map((p, i) => (
               <ScrollReveal key={p.step} direction="up" delay={i * 0.1}>
-                <div className="relative text-center p-6">
-                  <div className="w-14 h-14 rounded-2xl bg-orange-DEFAULT/10 border border-orange-DEFAULT/20 flex items-center justify-center mx-auto mb-5">
-                    <span className="font-syne font-extrabold text-orange-DEFAULT text-xl">{p.step}</span>
+                <div className="relative text-center p-5 sm:p-6">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-orange-DEFAULT/10 border border-orange-DEFAULT/20 flex items-center justify-center mx-auto mb-4 sm:mb-5">
+                    <span className="font-syne font-extrabold text-orange-DEFAULT text-lg sm:text-xl">{p.step}</span>
                   </div>
                   {i < process.length - 1 && (
-                    <div className="hidden lg:block absolute top-10 left-[calc(50%+36px)] right-[calc(-50%+36px)] h-px bg-gradient-to-r from-orange-DEFAULT/30 to-transparent" />
+                    <div className="hidden lg:block absolute top-9 left-[calc(50%+32px)] right-[calc(-50%+32px)] h-px bg-gradient-to-r from-orange-DEFAULT/30 to-transparent" />
                   )}
-                  <h3 className="font-syne font-bold text-white text-lg mb-2">{p.title}</h3>
-                  <p className="text-white/45 text-sm font-inter leading-relaxed">{p.desc}</p>
+                  <h3 className="font-syne font-bold text-slate-900 text-base sm:text-lg mb-2">{p.title}</h3>
+                  <p className="text-slate-500 text-sm font-inter leading-relaxed">{p.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -318,33 +319,33 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ─────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-bg">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg">
         <div className="max-w-7xl mx-auto">
-          <ScrollReveal className="text-center mb-16">
+          <ScrollReveal className="text-center mb-12 sm:mb-16">
             <span className="section-label mb-4 inline-flex">Client Reviews</span>
-            <h2 className="font-syne font-bold text-4xl md:text-5xl text-white mb-4">
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl text-slate-900 mb-4">
               What Our Clients <span className="gradient-text">Say About Us</span>
             </h2>
-            <div className="flex items-center justify-center gap-2 mt-4">
-              {[1,2,3,4,5].map(s => <svg key={s} className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
-              <span className="text-white/50 text-sm font-inter ml-2">5.0 · 93 Reviews</span>
+            <div className="flex items-center justify-center gap-1.5 mt-4">
+              {[1,2,3,4,5].map(s => <svg key={s} className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
+              <span className="text-slate-400 text-sm font-inter ml-2">5.0 · 93 Reviews</span>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {testimonials.map((t, i) => (
               <ScrollReveal key={t.name} direction="up" delay={i * 0.1}>
-                <div className="testimonial-card p-6 h-full flex flex-col">
-                  <div className="flex gap-1 mb-4">
+                <div className="testimonial-card p-5 sm:p-6 h-full flex flex-col">
+                  <div className="flex gap-1 mb-3 sm:mb-4">
                     {Array.from({ length: t.rating }).map((_, j) => (
                       <svg key={j} className="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                     ))}
                   </div>
-                  <p className="text-white/60 text-sm leading-relaxed font-inter flex-1 mb-5">&ldquo;{t.text}&rdquo;</p>
+                  <p className="text-slate-500 text-sm leading-relaxed font-inter flex-1 mb-4 sm:mb-5">&ldquo;{t.text}&rdquo;</p>
                   <div className="flex items-center gap-3">
-                    <Image src={t.avatar} alt={t.name} width={40} height={40} className="rounded-full object-cover border-2 border-orange-DEFAULT/20" />
+                    <Image src={t.avatar} alt={t.name} width={40} height={40} className="rounded-full object-cover border-2 border-orange-DEFAULT/20 flex-shrink-0" />
                     <div>
-                      <p className="font-syne font-semibold text-white text-sm">{t.name}</p>
-                      <p className="text-white/35 text-xs font-inter">{t.role}</p>
+                      <p className="font-syne font-semibold text-slate-900 text-sm">{t.name}</p>
+                      <p className="text-slate-400 text-xs font-inter">{t.role}</p>
                     </div>
                   </div>
                 </div>
@@ -355,15 +356,15 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-bg2">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg2">
         <div className="max-w-3xl mx-auto">
-          <ScrollReveal className="text-center mb-12">
+          <ScrollReveal className="text-center mb-10 sm:mb-12">
             <span className="section-label mb-4 inline-flex">FAQ</span>
-            <h2 className="font-syne font-bold text-4xl text-white mb-4">Frequently Asked Questions</h2>
-            <p className="text-white/45 font-inter">Everything you need to know before getting started.</p>
+            <h2 className="font-syne font-bold text-3xl sm:text-4xl text-slate-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-slate-500 font-inter text-sm sm:text-base">Everything you need to know before getting started.</p>
           </ScrollReveal>
           <ScrollReveal>
-            <div className="card p-2">
+            <div className="card p-2 sm:p-3">
               {faqs.map((faq, i) => <FaqItem key={i} {...faq} />)}
             </div>
           </ScrollReveal>
@@ -371,29 +372,30 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA BANNER ───────────────────────────────────────────────────── */}
-      <section className="py-24 px-6 bg-bg">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-bg">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
-            <div className="relative rounded-2xl overflow-hidden p-12 text-center" style={{ background: "linear-gradient(135deg, #1a0f05 0%, #0B0F1A 40%, #0a1020 100%)", border: "1px solid rgba(249,115,22,0.2)" }}>
-              <div className="glow-orb w-80 h-80 bg-orange-DEFAULT/15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            <div className="relative rounded-2xl overflow-hidden p-8 sm:p-12 text-center bg-slate-900" style={{ border: "1px solid rgba(249,115,22,0.2)" }}>
+              <div className="glow-orb w-64 h-64 sm:w-80 sm:h-80 bg-orange-DEFAULT/15 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
               <div className="relative z-10">
-                <span className="section-label mb-6 inline-flex">Ready to Grow?</span>
-                <h2 className="font-syne font-extrabold text-4xl md:text-5xl text-white mb-5">
+                <span className="section-label mb-5 sm:mb-6 inline-flex">Ready to Grow?</span>
+                <h2 className="font-syne font-extrabold text-white mb-4 sm:mb-5"
+                  style={{ fontSize: "clamp(1.6rem, 5vw, 3rem)", lineHeight: 1.15 }}>
                   Stop Losing Customers to<br />
                   <span className="gradient-text">Your Competitors</span>
                 </h2>
-                <p className="text-white/50 text-lg mb-8 font-inter max-w-xl mx-auto">
+                <p className="text-white/60 text-base sm:text-lg mb-7 sm:mb-8 font-inter max-w-xl mx-auto">
                   Book a free 30-minute strategy call. We&apos;ll audit your current digital presence and show you exactly where the growth opportunities are.
                 </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Link href="/contact" className="btn-primary px-8 py-4 text-base font-semibold font-inter">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                  <Link href="/contact" className="btn-primary w-full sm:w-auto px-7 py-4 text-base font-semibold font-inter">
                     Book Free Strategy Call →
                   </Link>
-                  <Link href="/about" className="btn-secondary px-8 py-4 text-base font-semibold font-inter">
+                  <Link href="/about" className="btn-secondary w-full sm:w-auto px-7 py-4 text-base font-semibold font-inter" style={{ borderColor: "rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.8)" }}>
                     Learn About Us
                   </Link>
                 </div>
-                <p className="text-white/25 text-xs font-inter mt-6">No commitment. No credit card. Just a conversation.</p>
+                <p className="text-white/30 text-xs font-inter mt-5 sm:mt-6">No commitment. No credit card. Just a conversation.</p>
               </div>
             </div>
           </ScrollReveal>

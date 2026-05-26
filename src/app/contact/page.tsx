@@ -19,6 +19,23 @@ const faqs = [
   { q: "Do you offer ongoing support?", a: "Absolutely. We offer flexible retainer packages for ongoing development, SEO, and marketing support." },
 ];
 
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="faq-item py-5">
+      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between gap-4 text-left group">
+        <span className={`font-syne font-semibold text-base transition-colors ${open ? "text-orange-DEFAULT" : "text-slate-800 group-hover:text-slate-600"}`}>{q}</span>
+        <span className={`w-7 h-7 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 ${open ? "bg-orange-DEFAULT border-orange-DEFAULT rotate-45" : "border-slate-200 group-hover:border-slate-300"}`}>
+          <svg className={`w-3.5 h-3.5 ${open ? "text-white" : "text-slate-500"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
+          </svg>
+        </span>
+      </button>
+      {open && <p className="text-slate-500 text-sm font-inter leading-relaxed mt-3 pr-10">{a}</p>}
+    </div>
+  );
+}
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
@@ -41,10 +58,10 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
             <span className="section-label mb-6 inline-flex">Get In Touch</span>
-            <h1 className="font-syne font-extrabold text-5xl md:text-6xl text-white mb-6">
+            <h1 className="font-syne font-extrabold text-5xl md:text-6xl text-slate-900 mb-6">
               Let&apos;s <span className="gradient-text">Start Something</span>
             </h1>
-            <p className="text-white/55 text-lg md:text-xl font-inter leading-relaxed max-w-2xl mx-auto">
+            <p className="text-slate-500 text-lg md:text-xl font-inter leading-relaxed max-w-2xl mx-auto">
               Have a project in mind? Book a free strategy call and we&apos;ll show you exactly how to grow your business online.
             </p>
           </ScrollReveal>
@@ -60,8 +77,8 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <ScrollReveal direction="left">
                 <div className="card p-8 rounded-2xl h-full">
-                  <h2 className="font-syne font-bold text-2xl text-white mb-2">Contact Information</h2>
-                  <p className="text-white/45 text-sm font-inter mb-8">Reach out through any of these channels and we&apos;ll respond within 24 hours.</p>
+                  <h2 className="font-syne font-bold text-2xl text-slate-900 mb-2">Contact Information</h2>
+                  <p className="text-slate-500 text-sm font-inter mb-8">Reach out through any of these channels and we&apos;ll respond within 24 hours.</p>
 
                   <div className="space-y-6 mb-10">
                     {contactInfo.map(item => (
@@ -72,26 +89,26 @@ export default function ContactPage() {
                           </svg>
                         </div>
                         <div>
-                          <p className="text-white/25 text-xs font-inter uppercase tracking-wider mb-1">{item.label}</p>
+                          <p className="text-slate-400 text-xs font-inter uppercase tracking-wider mb-1">{item.label}</p>
                           {item.href
-                            ? <a href={item.href} className="text-white text-sm font-inter hover:text-orange-DEFAULT transition-colors">{item.value}</a>
-                            : <p className="text-white text-sm font-inter">{item.value}</p>
+                            ? <a href={item.href} className="text-slate-800 text-sm font-inter hover:text-orange-DEFAULT transition-colors">{item.value}</a>
+                            : <p className="text-slate-800 text-sm font-inter">{item.value}</p>
                           }
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="border-t border-white/5 mb-8" />
+                  <div className="border-t border-slate-100 mb-8" />
 
-                  <div className="flex items-center gap-2 bg-green-500/8 border border-green-500/20 px-4 py-3 rounded-xl">
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                    <span className="text-green-400 text-sm font-inter font-medium">Currently accepting new projects</span>
+                  <div className="flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-3 rounded-xl">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-green-700 text-sm font-inter font-medium">Currently accepting new projects</span>
                   </div>
 
                   <div className="mt-6 p-4 rounded-xl bg-orange-DEFAULT/8 border border-orange-DEFAULT/15">
                     <p className="text-orange-DEFAULT text-sm font-semibold font-inter mb-1">🎁 Free Strategy Call</p>
-                    <p className="text-white/45 text-xs font-inter">Book a 30-min call and get a free audit of your current digital presence.</p>
+                    <p className="text-slate-500 text-xs font-inter">Book a 30-min call and get a free audit of your current digital presence.</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -103,41 +120,41 @@ export default function ContactPage() {
                 <div className="card p-8 rounded-2xl">
                   {submitted ? (
                     <div className="flex flex-col items-center justify-center py-16 text-center">
-                      <div className="w-16 h-16 rounded-full bg-green-500/15 border border-green-500/30 flex items-center justify-center mb-6">
-                        <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-16 h-16 rounded-full bg-green-100 border border-green-200 flex items-center justify-center mb-6">
+                        <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <h3 className="font-syne font-bold text-2xl text-white mb-3">Message Sent!</h3>
-                      <p className="text-white/45 font-inter mb-6">Thanks for reaching out. We&apos;ll get back to you within 24 hours.</p>
+                      <h3 className="font-syne font-bold text-2xl text-slate-900 mb-3">Message Sent!</h3>
+                      <p className="text-slate-500 font-inter mb-6">Thanks for reaching out. We&apos;ll get back to you within 24 hours.</p>
                       <button onClick={() => { setSubmitted(false); setFormData({ name: "", email: "", subject: "", message: "" }); }} className="btn-secondary px-6 py-2 text-sm font-semibold font-inter">
                         Send Another Message
                       </button>
                     </div>
                   ) : (
                     <>
-                      <h2 className="font-syne font-bold text-2xl text-white mb-2">Send Us a Message</h2>
-                      <p className="text-white/45 text-sm font-inter mb-8">Fill out the form and we&apos;ll be in touch shortly.</p>
+                      <h2 className="font-syne font-bold text-2xl text-slate-900 mb-2">Send Us a Message</h2>
+                      <p className="text-slate-500 text-sm font-inter mb-8">Fill out the form and we&apos;ll be in touch shortly.</p>
                       <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
-                            <label htmlFor="name" className="block text-white/55 text-sm font-inter mb-2">Full Name <span className="text-orange-DEFAULT">*</span></label>
+                            <label htmlFor="name" className="block text-slate-600 text-sm font-inter mb-2">Full Name <span className="text-orange-DEFAULT">*</span></label>
                             <input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} placeholder="John Smith" className="form-input w-full px-4 py-3 text-sm font-inter" />
                           </div>
                           <div>
-                            <label htmlFor="email" className="block text-white/55 text-sm font-inter mb-2">Email Address <span className="text-orange-DEFAULT">*</span></label>
+                            <label htmlFor="email" className="block text-slate-600 text-sm font-inter mb-2">Email Address <span className="text-orange-DEFAULT">*</span></label>
                             <input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="john@company.com" className="form-input w-full px-4 py-3 text-sm font-inter" />
                           </div>
                         </div>
                         <div>
-                          <label htmlFor="subject" className="block text-white/55 text-sm font-inter mb-2">Subject <span className="text-orange-DEFAULT">*</span></label>
+                          <label htmlFor="subject" className="block text-slate-600 text-sm font-inter mb-2">Subject <span className="text-orange-DEFAULT">*</span></label>
                           <select id="subject" name="subject" required value={formData.subject} onChange={handleChange} className="form-input w-full px-4 py-3 text-sm font-inter appearance-none cursor-pointer">
                             <option value="" disabled>Select a subject…</option>
-                            {subjects.map(s => <option key={s} value={s} className="bg-bg3 text-white">{s}</option>)}
+                            {subjects.map(s => <option key={s} value={s}>{s}</option>)}
                           </select>
                         </div>
                         <div>
-                          <label htmlFor="message" className="block text-white/55 text-sm font-inter mb-2">Message <span className="text-orange-DEFAULT">*</span></label>
+                          <label htmlFor="message" className="block text-slate-600 text-sm font-inter mb-2">Message <span className="text-orange-DEFAULT">*</span></label>
                           <textarea id="message" name="message" required rows={6} value={formData.message} onChange={handleChange} placeholder="Tell us about your project, goals, and timeline…" className="form-input w-full px-4 py-3 text-sm font-inter resize-none" />
                         </div>
                         <button type="submit" disabled={loading} className="btn-primary w-full py-4 text-base font-semibold font-inter flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
@@ -147,7 +164,7 @@ export default function ContactPage() {
                             <>Send Message <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg></>
                           )}
                         </button>
-                        <p className="text-white/20 text-xs font-inter text-center">By submitting, you agree to our Privacy Policy. We never share your data.</p>
+                        <p className="text-slate-400 text-xs font-inter text-center">By submitting, you agree to our Privacy Policy. We never share your data.</p>
                       </form>
                     </>
                   )}
@@ -159,28 +176,15 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-6 bg-bg border-t border-white/5">
+      <section className="py-20 px-6 bg-bg border-t border-slate-100">
         <div className="max-w-3xl mx-auto">
           <ScrollReveal className="text-center mb-12">
-            <h2 className="font-syne font-bold text-3xl text-white mb-3">Frequently Asked Questions</h2>
-            <p className="text-white/45 font-inter">Quick answers to common questions.</p>
+            <h2 className="font-syne font-bold text-3xl text-slate-900 mb-3">Frequently Asked Questions</h2>
+            <p className="text-slate-500 font-inter">Quick answers to common questions.</p>
           </ScrollReveal>
           <ScrollReveal>
             <div className="card p-2">
-              {faqs.map((faq, i) => {
-                const [open, setOpen] = useState(false);
-                return (
-                  <div key={i} className="faq-item py-5">
-                    <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between gap-4 text-left group">
-                      <span className={`font-syne font-semibold text-base transition-colors ${open ? "text-orange-DEFAULT" : "text-white"}`}>{faq.q}</span>
-                      <span className={`w-7 h-7 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all duration-300 ${open ? "bg-orange-DEFAULT border-orange-DEFAULT rotate-45" : ""}`}>
-                        <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" /></svg>
-                      </span>
-                    </button>
-                    {open && <p className="text-white/45 text-sm font-inter leading-relaxed mt-3 pr-10">{faq.a}</p>}
-                  </div>
-                );
-              })}
+              {faqs.map((faq, i) => <FaqItem key={i} {...faq} />)}
             </div>
           </ScrollReveal>
         </div>
