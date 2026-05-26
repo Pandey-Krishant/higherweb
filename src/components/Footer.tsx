@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const services = [
@@ -25,9 +26,14 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-xl btn-primary flex items-center justify-center text-white font-syne font-bold text-sm">HW</div>
-              <span className="font-syne font-bold text-lg text-slate-900">Higher<span className="text-orange-DEFAULT">Web</span>Solution</span>
+            <Link href="/" className="flex items-center mb-5">
+              <Image
+                src="/logo.svg"
+                alt="Higher Web Solutions"
+                width={180}
+                height={58}
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed mb-6">
               A results-driven digital agency helping businesses grow through strategic marketing, SEO, and high-performance web development.

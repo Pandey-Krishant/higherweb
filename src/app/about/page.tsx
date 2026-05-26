@@ -100,7 +100,7 @@ export default function AboutPage() {
                   <Image src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop" alt="Our team" width={700} height={500} className="w-full object-cover" />
                 </div>
                 <div className="absolute -bottom-6 -right-6 card p-5 rounded-xl">
-                  <p className="font-syne font-bold text-3xl text-slate-900">12+</p>
+                  <p className="font-syne font-bold text-3xl text-slate-900">6+</p>
                   <p className="text-slate-500 text-sm font-inter">Years of Excellence</p>
                 </div>
               </div>

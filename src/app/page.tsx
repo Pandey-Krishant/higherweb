@@ -13,10 +13,10 @@ const HeroCanvas = dynamic(() => import("@/components/HeroCanvas"), { ssr: false
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const stats = [
-  { value: 250, suffix: "+", label: "Projects Delivered" },
-  { value: 98,  suffix: "%", label: "Client Satisfaction" },
-  { value: 12,  suffix: "+", label: "Years Experience" },
-  { value: 40,  suffix: "+", label: "Team Members" },
+  { value: 200, suffix: "+", label: "Projects Delivered" },
+  { value: 97,  suffix: "%", label: "Client Satisfaction" },
+  { value: 6,   suffix: "+", label: "Years Experience" },
+  { value: 15,  suffix: "+", label: "Team Members" },
 ];
 
 const logos = ["TechCorp","NovaBrand","Apex Digital","Stellar Inc","FutureLabs","Orbit Co","GrowthHQ","MediaPulse"];
@@ -89,11 +89,23 @@ function StatCounter({ value, suffix, label }: { value: number; suffix: string; 
   useEffect(() => {
     const el = numRef.current;
     if (!el) return;
+    const obj = { val: 0 };
     const ctx = gsap.context(() => {
-      gsap.from({ val: 0 }, {
-        val: value, duration: 2, ease: "power2.out",
-        scrollTrigger: { trigger: el, start: "top 85%", once: true },
-        onUpdate: function () { if (el) el.textContent = Math.round(this.targets()[0].val).toString(); },
+      gsap.to(obj, {
+        val: value,
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 88%",
+          once: true,
+        },
+        onUpdate: () => {
+          if (el) el.textContent = Math.round(obj.val).toString();
+        },
+        onComplete: () => {
+          if (el) el.textContent = value.toString();
+        },
       });
     });
     return () => ctx.revert();
@@ -180,7 +192,7 @@ export default function HomePage() {
           </div>
 
           <div className="hero-trust flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-slate-400 text-sm font-inter">
-            {["✓ No long-term contracts", "✓ Results in 60 days", "✓ 250+ happy clients"].map(t => (
+            {["✓ No long-term contracts", "✓ Results in 60 days", "✓ 200+ happy clients"].map(t => (
               <span key={t}>{t}</span>
             ))}
           </div>
